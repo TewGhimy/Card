@@ -11,38 +11,34 @@ body {
 }
 
 body {
-  background-color: rgb(3, 0, 17);
-  display: flex; /* Ativa o Flexbox no body. */
-  justify-content: center; /* Centraliza o cartão horizontalmente. */
-  align-items: center; /* Centraliza o cartão verticalmente. */
-  height: 100%;
+  background-color: rgb(5, 0, 27);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Evita scroll durante o swipe */
 }
 
-/* Contêiner do cartão */
 #cartao-container {
   perspective: 1000px; /* Ativa o efeito 3D */
-}
-
-/* Cartão em si */
-#cartao {
   width: 250px;
   height: 375px;
+  position: relative;
+}
+
+#cartao {
+  width: 100%;
+  height: 100%;
   position: relative;
   transform-style: preserve-3d;
   transition: transform 0.8s ease; /* Animação suave */
 }
 
-#cartao-container:hover #cartao {
-  transform: rotateY(180deg); /* Rota o cartão no hover */
-}
-
-/* Estilo dos lados do cartão */
 .cartao-frente,
 .cartao-verso {
   position: absolute;
   width: 100%;
   height: 100%;
-  backface-visibility: hidden; /* Esconde o lado oposto */
+  backface-visibility: hidden;
   border-radius: 9px;
   display: flex;
   justify-content: center;
@@ -65,5 +61,5 @@ body {
     black,
     rgb(17, 160, 207)
   );
-  transform: rotateY(180deg); /* Rotaciona o verso para ficar "de costas" */
+  transform: rotateY(180deg);
 }
